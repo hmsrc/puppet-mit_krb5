@@ -30,11 +30,9 @@
 # Copyright 2015 Patrick Mooney.
 #
 define mit_krb5::domain_realm(
-  $domains,
-  $realm = $title,
+  Array $domains,
+  String $realm = $title,
 ) {
-  validate_array($domains)
-  validate_string($realm)
   include mit_krb5
   if count($domains) > 0 {
     ensure_resource('concat::fragment', 'mit_krb5::domain_realm_header', {
