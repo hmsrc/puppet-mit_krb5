@@ -29,16 +29,16 @@
 #
 # Copyright 2015 Patrick Mooney.
 #
-define mit_krb5::domain_realm(
+define mit_krb5::domain_realm (
   Array $domains,
   String $realm = $title,
 ) {
   include mit_krb5
   if count($domains) > 0 {
     ensure_resource('concat::fragment', 'mit_krb5::domain_realm_header', {
-      target  => $mit_krb5::krb5_conf_path,
-      order   => '20domain_realm_header',
-      content => "[domain_realm]\n",
+        target  => $mit_krb5::krb5_conf_path,
+        order   => '20domain_realm_header',
+        content => "[domain_realm]\n",
     })
     concat::fragment { "mit_krb5::domain_realm::${title}":
       target  => $mit_krb5::krb5_conf_path,
