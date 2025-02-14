@@ -74,7 +74,7 @@
 #
 # Copyright 2015 Patrick Mooney.
 #
-define mit_krb5::realm(
+define mit_krb5::realm (
   String $kdc                 = '',
   String $admin_server        = '',
   String $database_module     = '',
@@ -87,9 +87,9 @@ define mit_krb5::realm(
 ) {
   include mit_krb5
   ensure_resource('concat::fragment', 'mit_krb5::realm_header', {
-    target  => $mit_krb5::krb5_conf_path,
-    order   => '10realm_header',
-    content => "[realms]\n",
+      target  => $mit_krb5::krb5_conf_path,
+      order   => '10realm_header',
+      content => "[realms]\n",
   })
   concat::fragment { "mit_krb5::realm::${title}":
     target  => $mit_krb5::krb5_conf_path,

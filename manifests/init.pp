@@ -195,7 +195,7 @@
 #
 # Copyright 2015 Patrick Mooney.
 #
-class mit_krb5(
+class mit_krb5 (
   String $default_realm            = '',
   String $default_keytab_name      = '',
   Array  $default_tgs_enctypes     = [],
@@ -246,9 +246,9 @@ class mit_krb5(
   anchor { 'mit_krb5::begin': }
   include mit_krb5::install
   concat { $krb5_conf_path:
-    owner  => $krb5_conf_owner,
-    group  => $krb5_conf_group,
-    mode   => $krb5_conf_mode,
+    owner => $krb5_conf_owner,
+    group => $krb5_conf_group,
+    mode  => $krb5_conf_mode,
   }
   concat::fragment { 'mit_krb5::libdefaults':
     target  => $krb5_conf_path,
@@ -259,7 +259,7 @@ class mit_krb5(
   # END Resource creation }
 
   # SECTION: Resource ordering {
-  Anchor['mit_krb5::begin'] -> Class['mit_krb5::install'] ->
-    Concat[$krb5_conf_path] -> Anchor['mit_krb5::end']
+  Anchor['mit_krb5::begin'] -> Class['mit_krb5::install']
+  -> Concat[$krb5_conf_path] -> Anchor['mit_krb5::end']
   # END Resource ordering }
 }

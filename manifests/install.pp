@@ -10,7 +10,7 @@
 #
 # Copyright 2013 Patrick Mooney.
 #
-class mit_krb5::install($packages = undef) {
+class mit_krb5::install ( Array $packages = undef ) {
   if $packages {
     if is_array($packages) {
       $install = flatten($packages)
@@ -19,7 +19,7 @@ class mit_krb5::install($packages = undef) {
     }
   } else {
     # OS-specific defaults
-    $install = $::osfamily ? {
+    $install = $facts['os']['family'] ? {
       'Archlinux' => ['krb5'],
       'Debian'    => ['krb5-user'],
       'Gentoo'    => ['mit-krb5'],

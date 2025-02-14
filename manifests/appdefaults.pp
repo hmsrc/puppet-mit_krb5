@@ -10,6 +10,6 @@
 #
 # Copyright 2013 Patrick Mooney.
 #
-define mit_krb5::appdefaults() {
+define mit_krb5::appdefaults () {
   fail('PLACEHOLDER: Not yet implemented')
 }

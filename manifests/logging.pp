@@ -38,7 +38,7 @@
 #
 # Copyright 2015 Patrick Mooney.
 #
-class mit_krb5::logging(
+class mit_krb5::logging (
   String $default      = '',
   String $admin_server = '',
   String $kdc          = '',

@@ -10,6 +10,6 @@
 #
 # Copyright 2013 Patrick Mooney.
 #
-define mit_krb5::capaths() {
+define mit_krb5::capaths () {
   fail('PLACEHOLDER: Not yet implemented')
 }
