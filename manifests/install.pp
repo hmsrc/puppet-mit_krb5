@@ -12,7 +12,7 @@
 #
 class mit_krb5::install ( Array $packages = undef, ) {
   if $packages {
-    if $packages =~ Hash {
+    if $packages =~ Array {
       $install = flatten($packages)
     } else {
       $install = [$packages]
