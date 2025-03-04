@@ -10,7 +10,7 @@
 #
 # Copyright 2013 Patrick Mooney.
 #
-class mit_krb5::install ( Array $packages = [], ) {
+class mit_krb5::install ( Array $packages = undef, ) {
   if $packages {
     if $packages =~ Hash {
       $install = flatten($packages)
