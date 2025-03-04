@@ -11,7 +11,7 @@
 # Copyright 2013 Patrick Mooney.
 #
 class mit_krb5::install ( Array $packages = undef, ) {
-  if $packages {
+  if defined($packages) {
     if $packages =~ Array {
       $install = flatten($packages)
     } else {
